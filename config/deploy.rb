@@ -8,22 +8,22 @@ set :rvm_ruby_string, 'ruby-2.0.0-p0'
 set :rvm_type, :user
 
 set :application, "ruby-china"
-set :repository,  "git://github.com/ruby-china/ruby-china.git"
+set :repository,  "git://github.com/grasp/ruby-china.git"
 set :branch, "master"
 set :scm, :git
-set :user, "ruby"
+set :user, "hunter"
 if ENV["DEPLOY"] == "pre"
   set :deploy_to, "/data/www/#{application}-pre"
 else
   set :deploy_to, "/data/www/#{application}"
 end
-set :runner, "ruby"
+set :runner, "hunter"
 # set :deploy_via, :remote_cache
 # set :git_shallow_clone, 1
 
-role :web, "s2.ruby-china.org"                          # Your HTTP server, Apache/etc
-role :app, "s2.ruby-china.org"                          # This may be the same as your `Web` server
-role :db,  "s2.ruby-china.org", :primary => true # This is where Rails migrations will run
+role :web, "192.241.199.205"                          # Your HTTP server, Apache/etc
+role :app, "192.241.199.205"                          # This may be the same as your `Web` server
+role :db,  "192.241.199.205", :primary => true # This is where Rails migrations will run
 
 # unicorn.rb 路径
 set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
