@@ -8,6 +8,10 @@ RubyChina::Application.configure do
   
   config.eager_load = true
 
+  #this is for unicorn bug, it is ugly, repeat that with initialize
+  config.secret_token = '5070365ffe9d3ad7ed04e0ce080fe7ae9da2bd8497297a695118f91519a4c7b26fce69a024a888e768bacf2e376395921b557ea5cc50999b0e1d86993b908225'
+  config.secret_key_base = '66ad08589cd561754c8cd659a5a50a3694904f9c455dd2177115697d12d2c27b873222da8646f34c8cf4598a0f108f12c05141d645a3534c9a9a9833f239f397'
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -30,8 +34,8 @@ RubyChina::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.serve_static_assets = true
-
+  #config.serve_static_assets = true
+   config.serve_static_assets = false
   # Enable serving of images, stylesheets, and javascripts from an asset server
   #config.action_controller.asset_host = Setting.upload_url
 
@@ -56,6 +60,7 @@ RubyChina::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true
