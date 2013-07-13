@@ -4,7 +4,7 @@ require "sidekiq/capistrano"
 
 require "rvm/capistrano"
 default_run_options[:pty] = true
-set :rvm_ruby_string, 'ruby-1.9.3-p448'
+set :rvm_ruby_string, 'ruby-2.0.0-p247'
 set :rvm_type, :user
 
 set :application, "ruby-china"
@@ -21,9 +21,9 @@ set :runner, "hunter"
 # set :deploy_via, :remote_cache
 # set :git_shallow_clone, 1
 
-role :web, "192.241.199.205"                          # Your HTTP server, Apache/etc
-role :app, "192.241.199.205"                          # This may be the same as your `Web` server
-role :db,  "192.241.199.205", :primary => true # This is where Rails migrations will run
+role :web, "192.241.215.46"                          # Your HTTP server, Apache/etc
+role :app, "192.241.215.46"                          # This may be the same as your `Web` server
+role :db,  "192.241.215.46", :primary => true # This is where Rails migrations will run
 
 # unicorn.rb 路径
 set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
@@ -91,4 +91,4 @@ task :mongoid_migrate_database, :roles => :web do
 end
 
 #after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets, :sync_assets_to_cdn, :mongoid_migrate_database
-after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets, :mongoid_migrate_database
+after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets,:sync_assets_to_cdn, :mongoid_migrate_database
