@@ -18,7 +18,7 @@
 <head>
   <%= render_page_title %>
 <%if Rails.env.production?%>
- < %= stylesheet_link_tag "http://ruyi-cdn.b0.upaiyun.com/assets/front.css" %>
+ <%= stylesheet_link_tag "http://ruyi-cdn.b0.upaiyun.com/assets/front.css"%>
 <%else%>
   <%= stylesheet_link_tag "front"%>
 <%end%>
