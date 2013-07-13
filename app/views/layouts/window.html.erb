@@ -2,7 +2,7 @@
 <html>
 <head>
 
- <%if RAILS_ENV==production%>
+ <%if Rails.env.production?%>
  < %= stylesheet_link_tag "http://ruyi-cdn.b0.upaiyun.com/assets/window.css" %>
 <%else%>
   <%= stylesheet_link_tag "window"%>
