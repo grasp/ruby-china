@@ -5,10 +5,10 @@ defaults: &defaults
   admin_emails:
     - "mark.xiansheng@gmail.com"
   google_analytics_key: ""
-  upload_url: "w090-image.b0.upaiyun.com"
-  upyun_username: "hunter"
+  upload_url: "http://ruyi-cdn.b0.upaiyun.com"
+  upyun_username: "ruyi"
   upyun_password: "yuntuisong"
-  upyun_bucket: "w090-image"
+  upyun_bucket: "ruyi-cdn"
   email_server: "smtp.exmail.qq.com"
   email_sender: 'dev-test@ruby-china.org'
   email_password: 'test123456'

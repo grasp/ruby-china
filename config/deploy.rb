@@ -91,4 +91,5 @@ task :mongoid_migrate_database, :roles => :web do
 end
 
 #after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets, :sync_assets_to_cdn, :mongoid_migrate_database
-after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets,:sync_assets_to_cdn, :mongoid_migrate_database
+#after "deploy:finalize_update","deploy:symlink", :init_shared_path, :link_shared_files, :compile_assets,:sync_assets_to_cdn, :mongoid_migrate_database
+after "deploy:finalize_update","deploy:symlink", :init_shared_path, :compile_assets,:sync_assets_to_cdn, :mongoid_migrate_database
