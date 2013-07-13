@@ -3,7 +3,12 @@
 <head>
   <title>RubyChina - Control Panel</title>
   <link rel="shortcut icon" href="<%= asset_path("big_logo.png") %>" />
-  <%= stylesheet_link_tag "cpanel" %>
+
+ <%if RAILS_ENV==production%>
+ < %= stylesheet_link_tag "http://ruyi-cdn.b0.upaiyun.com/assets/cpanel.css" %>
+<%else%>
+  <%= stylesheet_link_tag "cpanel"%>
+<%end%>
   <%= javascript_include_tag "app" %>
   <%= csrf_meta_tag %>
 </head>
