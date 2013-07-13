@@ -5,7 +5,7 @@ defaults: &defaults
   admin_emails:
     - "mark.xiansheng@gmail.com"
   google_analytics_key: ""
-  upload_url: "http://w090-image.b0.upaiyun.com "
+  upload_url: "w090-image.b0.upaiyun.com"
   upyun_username: "hunter"
   upyun_password: "yuntuisong"
   upyun_bucket: "w090-image"
