@@ -18,8 +18,10 @@
 <head>
 <%= render_page_title "Rails.env.production" %>
  <%if Rails.env.production?%>
+ <p>production</p>
  <%= stylesheet_link_tag "http://ruyi-cdn.b0.upaiyun.com/assets/front.css"%>
 <%else%>
+ <p>no production</p>
   <%= stylesheet_link_tag "front"%>
 <%end%>
 
