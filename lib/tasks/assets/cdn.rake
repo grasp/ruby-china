@@ -4,6 +4,6 @@ namespace :assets do
   task :cdn => :environment do 
     ftp = FtpSync.new("v1.ftp.upyun.com", [Setting.upyun_username,Setting.upyun_bucket].join("/"), Setting.upyun_password,true)
     ftp.sync("#{Rails.root}/public/assets/", "/assets")
-    ftp.sync("#{Rails.root}/public/assets/", "/stylesheets")
+    ftp.sync("#{Rails.root}/public/assets/", "/stylesheets/assets")
   end
 end
