@@ -1,6 +1,8 @@
 # coding: utf-8
 RubyChina::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
+    # Enable serving of images, stylesheets, and javascripts from an asset server
+  config.action_controller.asset_host = Setting.upload_url
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
@@ -35,9 +37,8 @@ RubyChina::Application.configure do
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
   #config.serve_static_assets = true
-   config.serve_static_assets = true
-  # Enable serving of images, stylesheets, and javascripts from an asset server
-  config.action_controller.asset_host = Setting.upload_url
+   config.serve_static_assets = false
+
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
