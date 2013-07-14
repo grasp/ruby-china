@@ -26,20 +26,23 @@ role :app, "192.241.215.46"                          # This may be the same as y
 role :db,  "192.241.215.46", :primary => true # This is where Rails migrations will run
 
 # unicorn.rb 路径
-set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
+#set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
 
 namespace :deploy do
   task :start, :roles => :app do
-   run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec unicorn_rails -c #{unicorn_path} -D"   
+   run "cd #{deploy_to}/current/; thin start -e production -C  #{deploy_to}/current/config/thin_front.yml.rb -d"   
   end
 
   task :stop, :roles => :app do
-    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
+    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/thin.8000.pid`"
+    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/thin.8001.pid`"
   end
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "kill -USR2 `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
+    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/thin.8000.pid`"
+    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/thin.8001.pid`"
+    run "cd #{deploy_to}/current/; thin start -e production -C  #{deploy_to}/current/config/thin_front.yml.rb -d"   
   end
 end
 
